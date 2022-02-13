@@ -8,7 +8,11 @@ PN5180 eAmusement wavepass USB HID card reader (cardio) with optional integrated
 
 Be sure to check out alternate branches for variants using other backends or hardware.
 
+NAVIGATION branch forked from CrazyRedMachine is intended to be used with DDRduino and KEYmani PCBs (upload pending testing). GPIO pin assignments below are to align with those boards.
+
 # Acknowledgments
+
+This fork is based on CrazyRedMachine who did all the heavy lifting here.
 
 This work is based on zyp's cardio (obviously).
 
@@ -44,12 +48,12 @@ GND    |        <-->      |       GND
 GND     | GND (HV) | .
  .        |   LV              | 3.3V
   .      |    GND (LV)        | GND
-SCK    | HV1 - LV1       | SCK
+SCK    | HV3 - LV3       | SCK
 MISO      |     <---        | MISO
-MOSI    | HV3 - LV3       | MOSI
-10   | HV4 - LV4      | NSS (=Not SS -> active LOW)
+MOSI    | HV4 - LV4       | MOSI
+10   | HV2 - LV2      | NSS (=Not SS -> active LOW)
 9  |       <---     |        BUSY
-7 | HV2 - LV2      | RST
+7 | HV1 - LV1      | RST
 
 Please refer to your Arduino pinout to find SCK, MISO and MOSI pins
 (on Due and Leonardo they are on the SPI / ICSP header, on Pro Micro
@@ -60,8 +64,8 @@ if you need to.
 
 # Keypad Pinout
 
-Connect the row pins to gpio 1 6 5 3.
-Connect the column pins to gpio 2 0 4.
+Connect the row pins to GPIO D3 A0 A1 A2.
+Connect the column pins to GPIO A3 A4 A5.
 
 If you want to use the keypad, you have to set `#define WITH_KEYPAD 1` in Config.h
 
