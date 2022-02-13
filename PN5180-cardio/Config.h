@@ -2,25 +2,25 @@
 #define CONFIG_h
 
 /* PN5180 support (disable to test only the navigation buttons/keypad) */
-#define WITH_PN5180 1
+#define WITH_PN5180 0
 
 /* ISO14443 support (for older Aime/Nesica/BANAPASSPORT cards... reader will pretend it was a FeliCa for maximum cardio compatibility) */
 #define WITH_ISO14443 1
 
 /* Pinout for the PN5180 free pins */
-#define PN5180_PIN_NSS  10
-#define PN5180_PIN_BUSY 9
-#define PN5180_PIN_RST  7
+#define PN5180_PIN_NSS  0
+#define PN5180_PIN_RST  1
+#define PN5180_PIN_BUSY 2
 
 /* Use a matrix keypad */
 #define WITH_KEYPAD 1
-  #define PIN_ROW1 1
-  #define PIN_ROW2 6
-  #define PIN_ROW3 5
-  #define PIN_ROW4 3
-  #define PIN_COL1 2
-  #define PIN_COL2 0
-  #define PIN_COL3 4
+  #define PIN_ROW1 3
+  #define PIN_ROW2 A0
+  #define PIN_ROW3 A1
+  #define PIN_ROW4 A2
+  #define PIN_COL1 A3
+  #define PIN_COL2 A4
+  #define PIN_COL3 A5
 
 /* Player ID (1 or 2) */
 #define CARDIO_ID 1
@@ -28,16 +28,17 @@
 #define CUSTOM_VIDPID 1
 
 /* NAVIGATION */
+// This is ordered to match the sketch, do not change it!
 #define WITH_NAVIGATION 1
-  #define PIN_BUT_UP    A0
-  #define PIN_BUT_DOWN  A1
-  #define PIN_BUT_LEFT  A2
-  #define PIN_BUT_RIGHT A3
-  #define PIN_BUT_START A4  
-  #define PIN_LED_UP    8
-  #define PIN_LED_DOWN  11
-  #define PIN_LED_LEFT  12
-  #define PIN_LED_RIGHT 13
-  #define PIN_LED_START A5
+  #define PIN_BUT_UP    12
+  #define PIN_BUT_DOWN  11
+  #define PIN_BUT_LEFT  10
+  #define PIN_BUT_RIGHT 9
+  #define PIN_BUT_START 13  
+  #define PIN_LED_UP    7
+  #define PIN_LED_DOWN  6
+  #define PIN_LED_LEFT  5
+  #define PIN_LED_RIGHT 4
+  #define PIN_LED_START 8
 
 #endif /* CONFIG_H */
